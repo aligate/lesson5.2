@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+    <title>Вход на сайт</title>
+    
+  </head>
+  <body> 
+   
+    <section>
+    <div class="container">
+        
+
+            <div class="col-sm-4 col-sm-offset-4 padding-right">
+
+              
+                    <h2>Регистрация</h2>
+                    <form action="?/user/regist/"  method="post">
+                        <input type="text" name="login" placeholder="логин" value="{{login}}"/>
+                        <input type="password" name="password" placeholder="Пароль" value=""/><br>
+						<input type="submit" name="regist"  value="Зарегистрироваться" />
+					</form>
+					<br>
+				{%for type, value in message%}
+				{%if type == 'result'%}
+					<p style='color: green;'>{{value.0}}<p>
+					{%else%}
+					<p style='color: red;'>{{value.0}}<p>
+					{%endif%}
+				{%endfor%}
+					<br>
+						<h3><a href = "?/user/auth/">Авторизация</a></h3>
+					
+               
+				
+				
+				 
+				
+				
+				
+				 <br/>
+            </div>
+       
+    </div>
+</section>
+ </body>
+</html>
