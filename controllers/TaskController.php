@@ -114,18 +114,19 @@ class TaskController extends CoreController
 	}
 	// Сортировка по заданному полю
 	
-	public function getSort(){
-		
+	public function getSort()
+	{
 		if(isset($_GET['sort_by']) AND ($_GET['sort_by'] === 'description' 
-										OR $_GET['sort_by'] === 'is_done' 
-										OR $_GET['sort_by'] === 'date_added')){
+									OR $_GET['sort_by'] === 'is_done' 
+									OR $_GET['sort_by'] === 'date_added'))
+			{
 			$sortBy = $_GET['sort_by'];
 			$sortBy = " ORDER BY {$sortBy}";
 			return $sortBy;
 			}
 			return '';
 	}
-	
+	// Закрепление задания за другим пользователем
 	public function postAssign($params, $post){
 		$assignData = [];
 		$id_in_session = self::checkLogged()['id'];
