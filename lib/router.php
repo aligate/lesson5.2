@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Второй уровень понимания роутеров.
- * Сделаем более универсальным
- * Пример урла: /?/{controller}/{action}/{param1}/{value1}/{param2}/{value2}/
- * /?/book/update/id/1/
- */
  
 if(strpos($_SERVER['REQUEST_URI'], '?') === false)
 {
