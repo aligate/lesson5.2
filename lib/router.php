@@ -6,16 +6,19 @@
  * Пример урла: /?/{controller}/{action}/{param1}/{value1}/{param2}/{value2}/
  * /?/book/update/id/1/
  */
-$pathList = preg_split('/\//', $_SERVER['REQUEST_URI'], -1, PREG_SPLIT_NO_EMPTY);
-//выбрасываем корневую папку
-array_shift($pathList);
-// выбрасываем знак "?"
-array_shift($pathList);
-// Значение по умолчанию
-if (count($pathList) < 2) {
+ 
+if(strpos($_SERVER['REQUEST_URI'], '?') === false)
+{
 	$pathList = ['task', 'list'];
 }
-if (count($pathList) >= 2) {
+else
+{
+	$uriSplit = explode('?', $_SERVER['REQUEST_URI']);
+	$pathList = preg_split('/\//', $uriSplit[1], -1, PREG_SPLIT_NO_EMPTY);
+	
+}
+
+	if (count($pathList) >= 2) {
 	$controller = array_shift($pathList);
 	$action = array_shift($pathList);
 	
