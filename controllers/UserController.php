@@ -91,7 +91,7 @@ public function getAuth()
 		
 		$_SESSION['users'] = $is_auth;
 	
-		header('Location: /lesson5.2/');
+		header('Location:'.$_SERVER['PHP_SELF']);
 		
 	}
 }
