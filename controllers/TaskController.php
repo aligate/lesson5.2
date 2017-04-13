@@ -22,7 +22,7 @@ class TaskController extends CoreController
 				
 			]);
 			if ($taskAdd) {
-				header('Location: /lesson5.2/');
+				header('Location:'.$_SERVER['PHP_SELF']);
 			}
 		}
 	}
@@ -36,7 +36,7 @@ class TaskController extends CoreController
 		if (isset($params['id']) && is_numeric($params['id'])) {
 			$isDeleted = $this->model->delete($params['id']);
 			if ($isDeleted) {
-				header('Location: /lesson5.2/');
+				header('Location:'.$_SERVER['PHP_SELF']);
 			}
 		}
 	}
@@ -49,7 +49,7 @@ class TaskController extends CoreController
 		if (isset($params['id']) && is_numeric($params['id'])) {
 			$isDone = $this->model->updateStatus($params['id']);
 			if ($isDone) {
-				header('Location: /lesson5.2/');
+				header('Location:'.$_SERVER['PHP_SELF']);
 			}
 		}
 	}
@@ -89,7 +89,7 @@ class TaskController extends CoreController
 			}
 			
 			$this->model->updateTask($params['id'], $updateParam);
-			header('Location: /lesson5.2/');
+			header('Location:'.$_SERVER['PHP_SELF']);
 			
 		}
 	}
@@ -138,7 +138,7 @@ class TaskController extends CoreController
 		}
 		
 		$this->model->taskAssign($id_in_session, $assignData);
-		header('Location: /lesson5.2/');
+		header('Location:'.$_SERVER['PHP_SELF']);
 		
 	}
 	
