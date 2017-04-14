@@ -10,8 +10,13 @@ else
 	$pathList = preg_split('/\//', $uriSplit[1], -1, PREG_SPLIT_NO_EMPTY);
 	
 }
+	if (count($pathList) < 2)
+	{
+	$pathList = ['task', 'list'];
+	}
 
-	if (count($pathList) >= 2) {
+	if (count($pathList) >= 2) 
+	{
 	$controller = array_shift($pathList);
 	$action = array_shift($pathList);
 	
