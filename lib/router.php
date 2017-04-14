@@ -1,13 +1,13 @@
 <?php
 
 
-if(strpos($_SERVER['REQUEST_URI'], '?') === false)
+if(strpos ( $_SERVER['REQUEST_URI'], '?') === false )
 {
 	$pathList = ['task', 'list'];
 }
 else
 {
-	$pathList = explode('/', trim($_SERVER['argv'][0], '/'));
+	$pathList = explode ( '/', trim( $_SERVER['argv'][0], '/' ));
 	
 }
 	if (count($pathList) < 2)
