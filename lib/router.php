@@ -1,22 +1,20 @@
 <?php
- 
+
+
 if(strpos($_SERVER['REQUEST_URI'], '?') === false)
 {
 	$pathList = ['task', 'list'];
 }
 else
 {
-	$uriSplit = explode('?', $_SERVER['REQUEST_URI']);
-	$pathList = preg_split('/\//', $uriSplit[1], -1, PREG_SPLIT_NO_EMPTY);
+	$pathList = explode('/', trim($_SERVER['argv'][0], '/'));
 	
 }
 	if (count($pathList) < 2)
 	{
 	$pathList = ['task', 'list'];
 	}
-
-	if (count($pathList) >= 2) 
-	{
+	
 	$controller = array_shift($pathList);
 	$action = array_shift($pathList);
 	
@@ -28,7 +26,7 @@ else
 	}
 	$controllerText = $controller . 'Controller';
 	$controllerFile = 'controllers/' . ucfirst($controllerText) . '.php';
-	
+		
 	if (is_file($controllerFile)) {
 		include $controllerFile;
 		if (class_exists($controllerText)) {
@@ -41,4 +39,3 @@ else
 			
 		}
 	}
-}
